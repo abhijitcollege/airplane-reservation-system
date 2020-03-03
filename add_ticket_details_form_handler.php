@@ -30,7 +30,7 @@
 				$payment_id=NULL;
 				$customer_id=$_SESSION['login_user'];
 
-				require_once('../mysqli_connect.php');
+				require_once('mysqli_connect.php');
 
 				if($_SESSION['class']=='economy')
 				{	

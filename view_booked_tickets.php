@@ -57,7 +57,7 @@
 			$thirty_days_before_date=date_format($thirty_days_before_date,"Y-m-d");
 			
 			$customer_id=$_SESSION['login_user'];
-			require_once('../mysqli_connect.php');
+			require_once('mysqli_connect.php');
 			$query="SELECT pnr,date_of_reservation,flight_no,journey_date,class,booking_status,no_of_passengers,payment_id FROM Ticket_Details where customer_id=? and journey_date>=? and booking_status='CONFIRMED' ORDER BY  journey_date";
 			$stmt=mysqli_prepare($dbc,$query);
 			mysqli_stmt_bind_param($stmt,"ss",$customer_id,$todays_date);

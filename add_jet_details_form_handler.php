@@ -39,7 +39,7 @@
 
 				if(empty($data_missing))
 				{
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 					$query="INSERT INTO Jet_Details (jet_id,jet_type,total_capacity,active) VALUES (?,?,?,'Yes')";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"ssi",$jet_id,$jet_type,$jet_capacity);

@@ -65,7 +65,7 @@
 
 				if(empty($data_missing))
 				{
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 					$query="SELECT pnr,date_of_reservation,class,no_of_passengers,payment_id,customer_id FROM Ticket_Details where flight_no=? and journey_date=? and booking_status='CONFIRMED' ORDER BY class";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"ss",$flight_no,$departure_date);

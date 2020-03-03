@@ -116,7 +116,7 @@
 				if(empty($data_missing))
 				{
 					$cnt=-1;
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 
 					$query="SELECT count(*) FROM Jet_Details WHERE jet_id=? and active='Yes'";
 					$stmt=mysqli_prepare($dbc,$query);

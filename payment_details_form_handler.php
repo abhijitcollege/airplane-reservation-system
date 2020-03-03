@@ -19,7 +19,7 @@
 				$payment_date=$_SESSION['payment_date'];
 				$payment_mode=$_POST['payment_mode'];				
 
-				require_once('../mysqli_connect.php');
+				require_once('mysqli_connect.php');
 				if($class=='economy')
 				{
 					$query="UPDATE Flight_Details SET seats_economy=seats_economy-? WHERE flight_no=? AND departure_date=?";

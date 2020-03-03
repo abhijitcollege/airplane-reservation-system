@@ -52,7 +52,7 @@
 		</div>
 		<?php
 			echo "<h2>Welcome ".$_SESSION['login_user']."</h2>";
-			require_once('../mysqli_connect.php');
+			require_once('mysqli_connect.php');
 			$query="SELECT count(*),frequent_flier_no,mileage FROM Frequent_Flier_Details WHERE customer_id=?";
 			$stmt=mysqli_prepare($dbc,$query);
 			mysqli_stmt_bind_param($stmt,"s",$_SESSION['login_user']);

@@ -59,7 +59,7 @@
 
 				if(empty($data_missing))
 				{
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 					$query="INSERT INTO Customer (customer_id,pwd,name,email,phone_no,address) VALUES (?,?,?,?,?,?)";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"ssssss",$user_name,$password,$name,$email_id,$phone_no,$address);

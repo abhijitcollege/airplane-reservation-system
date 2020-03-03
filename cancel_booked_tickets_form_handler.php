@@ -23,7 +23,7 @@
 
 				if(empty($data_missing))
 				{
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 
 					$todays_date=date('Y-m-d'); 
 					$customer_id=$_SESSION['login_user'];

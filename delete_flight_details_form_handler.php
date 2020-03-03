@@ -29,7 +29,7 @@
 
 				if(empty($data_missing))
 				{
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 					$query="DELETE FROM Flight_Details WHERE flight_no=? AND departure_date=?";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"ss",$flight_no,$departure_date);

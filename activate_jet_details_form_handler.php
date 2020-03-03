@@ -21,7 +21,7 @@
 
 				if(empty($data_missing))
 				{
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 					$query="UPDATE Jet_Details SET active='Yes' WHERE jet_id=?";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"s",$jet_id);

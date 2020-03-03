@@ -98,7 +98,7 @@
 					$count=1;
 					$_SESSION['count']=$count;
 					$_SESSION['journey_date']=$dep_date;
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 					if($class=="economy")
 					{
 						$query="SELECT flight_no,from_city,to_city,departure_date,departure_time,arrival_date,arrival_time,price_economy FROM Flight_Details where from_city=? and to_city=? and departure_date=? and seats_economy>=? ORDER BY  departure_time";

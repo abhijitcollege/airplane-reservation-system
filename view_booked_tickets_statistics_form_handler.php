@@ -58,7 +58,7 @@
 				$no_of_tickets_booked=0;
 				if(empty($data_missing))
 				{
-					require_once('../mysqli_connect.php');
+					require_once('mysqli_connect.php');
 					$query="CALL GetFlightStatistics(?)";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"s",$j_date);

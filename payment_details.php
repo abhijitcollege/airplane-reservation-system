@@ -52,7 +52,7 @@
 				$_SESSION['payment_date']=$payment_date;
 
 
-				require_once('../mysqli_connect.php');
+				require_once('mysqli_connect.php');
 				if($_SESSION['class']=='economy')
 				{	
 					$query="SELECT price_economy FROM Flight_Details where flight_no=? and departure_date=?";
