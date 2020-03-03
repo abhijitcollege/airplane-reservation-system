@@ -41,63 +41,46 @@
 				{
 					if($user_type=='Customer')
 					{
-						require_once('../mysqli_connect.php');
-						$query="SELECT count(*) FROM Customer where customer_id=? and pwd=?";
-						$stmt=mysqli_prepare($dbc,$query);
-						mysqli_stmt_bind_param($stmt,"ss",$user_name,$pass_word);
-						mysqli_stmt_execute($stmt);
-						mysqli_stmt_bind_result($stmt,$cnt);
-						mysqli_stmt_fetch($stmt);
-						//echo $cnt;
-						mysqli_stmt_close($stmt);
-						mysqli_close($dbc);
-						/*$affected_rows=mysqli_stmt_affected_rows($stmt);
-						$response=@mysqli_query($dbc,$query);
-						echo $affected_rows;
-						*/
-						if($cnt==1)
-						{
-							echo "Logged in <br>";
-							$_SESSION['login_user']=$user_name;
-							echo $_SESSION['login_user']." is logged in";
-							header("location: customer_homepage.php");
-						}
-						else
-						{
+						require_once('mysqli_connect.php');
+						$res=mysqli_query($dbc,"SELECT * FROM customer WHERE customer_id='$username'");
+					$row=mysqli_fetch_array($res);
+					if($row['pwd']==$pwd)
+					{
+						echo "Logged in <br>";
+						$_SESSION['login_user']=$user_name;
+						echo $_SESSION['login_user']." is logged in";
+						header('location:customer_homepage.php');
+					}
+					else
+					{
 							echo "Login Error";
 							session_destroy();
 							header('location:login_page.php?msg=failed');
-						}
+
+					}
+						
 					}
 					else if($user_type=='Administrator')
 					{
-						require_once('../mysqli_connect.php');
-						$query="SELECT count(*) FROM Admin where admin_id=? and pwd=?";
-						$stmt=mysqli_prepare($dbc,$query);
-						mysqli_stmt_bind_param($stmt,"ss",$user_name,$pass_word);
-						mysqli_stmt_execute($stmt);
-						mysqli_stmt_bind_result($stmt,$cnt);
-						mysqli_stmt_fetch($stmt);
-						//echo $cnt;
-						mysqli_stmt_close($stmt);
-						mysqli_close($dbc);
-						/*$affected_rows=mysqli_stmt_affected_rows($stmt);
-						$response=@mysqli_query($dbc,$query);
-						echo $affected_rows;
-						*/
-						if($cnt==1)
-						{
-							echo "Logged in <br>";
-							$_SESSION['login_user']=$user_name;
-							echo $_SESSION['login_user']." is logged in";
-							header('location:admin_homepage.php');
-						}
-						else
-						{
+						require_once('mysqli_connect.php');
+						
+
+					$res=mysqli_query($dbc,"SELECT * FROM admin WHERE admin_id='$username'");
+					$row=mysqli_fetch_array($res);
+					if($row['pwd']==$pwd)
+					{
+						echo "Logged in <br>";
+						$_SESSION['login_user']=$user_name;
+						echo $_SESSION['login_user']." is logged in";
+						header('location:admin_homepage.php');
+					}
+					else
+					{
 							echo "Login Error";
 							session_destroy();
 							header('location:login_page.php?msg=failed');
-						}
+					}
+
 					}
 				}
 				else
